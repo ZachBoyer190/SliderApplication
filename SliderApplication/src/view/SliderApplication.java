@@ -12,6 +12,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JMenu;
 import javax.swing.JLabel;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.JButton;
 
 public class SliderApplication {
 
@@ -50,30 +51,31 @@ public class SliderApplication {
 		
 		JPanel panel = new JPanel();
 		
-		JLabel lblTime = new JLabel("Time");
-		
 		JLabel lblMoves = new JLabel("Moves");
+		
+		JButton btnResetPuzzle = new JButton("Reset Puzzle");
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
 					.addComponent(panel, GroupLayout.PREFERRED_SIZE, 394, GroupLayout.PREFERRED_SIZE)
-					.addGap(18)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(lblTime)
-						.addComponent(lblMoves))
-					.addContainerGap(178, Short.MAX_VALUE))
+						.addComponent(lblMoves)
+						.addComponent(btnResetPuzzle))
+					.addContainerGap(123, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(Alignment.TRAILING)
-				.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(lblTime)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(lblMoves))
+							.addGap(20)
+							.addComponent(lblMoves)
+							.addGap(26)
+							.addComponent(btnResetPuzzle))
 						.addComponent(panel, GroupLayout.PREFERRED_SIZE, 466, GroupLayout.PREFERRED_SIZE))
 					.addContainerGap(18, Short.MAX_VALUE))
 		);
@@ -85,13 +87,10 @@ public class SliderApplication {
 		JMenu mnFile = new JMenu("File");
 		menuBar.add(mnFile);
 		
-		JMenuItem mntmSave = new JMenuItem("Save");
+		JMenuItem mntmSave = new JMenuItem("Save...");
 		mnFile.add(mntmSave);
-		
-		JMenuItem mntmReset = new JMenuItem("Reset");
-		mnFile.add(mntmReset);
-		
-		JMenuItem mntmOpen = new JMenuItem("Open");
+
+		JMenuItem mntmOpen = new JMenuItem("Open...");
 		mnFile.add(mntmOpen);
 		
 		JMenu mnHelp = new JMenu("Help");
