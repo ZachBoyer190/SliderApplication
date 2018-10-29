@@ -51,7 +51,7 @@ public class SliderApplication {
 		
 		JPanel panel = new JPanel();
 		
-		JLabel lblMoves = new JLabel("Moves");
+		JLabel lblMoves = new JLabel("Number of Moves:");
 		
 		JButton btnResetPuzzle = new JButton("Reset Puzzle");
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
@@ -60,10 +60,10 @@ public class SliderApplication {
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
 					.addComponent(panel, GroupLayout.PREFERRED_SIZE, 394, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGap(18)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(lblMoves)
-						.addComponent(btnResetPuzzle))
+						.addComponent(btnResetPuzzle)
+						.addComponent(lblMoves))
 					.addContainerGap(123, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
@@ -72,9 +72,9 @@ public class SliderApplication {
 					.addContainerGap()
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(20)
+							.addGap(18)
 							.addComponent(lblMoves)
-							.addGap(26)
+							.addGap(28)
 							.addComponent(btnResetPuzzle))
 						.addComponent(panel, GroupLayout.PREFERRED_SIZE, 466, GroupLayout.PREFERRED_SIZE))
 					.addContainerGap(18, Short.MAX_VALUE))
