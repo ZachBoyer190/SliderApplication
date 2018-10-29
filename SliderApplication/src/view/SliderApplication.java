@@ -40,6 +40,8 @@ public class SliderApplication {
 	public SliderApplication() {
 		initialize();
 	}
+	
+	// COMMENT
 
 	/**
 	 * Initialize the contents of the frame.
