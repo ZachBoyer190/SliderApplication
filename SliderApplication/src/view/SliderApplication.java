@@ -84,7 +84,7 @@ public class SliderApplication {
 		JMenuBar menuBar = new JMenuBar();
 		frame.setJMenuBar(menuBar);
 		
-		JMenu mnFile = new JMenu("File");
+		JMenu mnFile = new JMenu("SliderApp");
 		menuBar.add(mnFile);
 		
 		JMenuItem mntmSave = new JMenuItem("Save...");
@@ -93,11 +93,8 @@ public class SliderApplication {
 		JMenuItem mntmOpen = new JMenuItem("Open...");
 		mnFile.add(mntmOpen);
 		
-		JMenu mnHelp = new JMenu("Help");
-		menuBar.add(mnHelp);
-		
-		JMenuItem mntmAbout = new JMenuItem("About");
-		mnHelp.add(mntmAbout);
-		
+		JMenuItem mntmOpen = new JMenuItem("Quit SliderApp");
+		mnFile.add(mntmOpen);
+
 	}
 }
