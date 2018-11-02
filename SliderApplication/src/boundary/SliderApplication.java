@@ -1,4 +1,4 @@
-package view;
+package boundary;
 
 import java.awt.EventQueue;
 
@@ -14,26 +14,13 @@ import javax.swing.JLabel;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JButton;
 
-public class SliderApplication {
+public class SliderApplication extends JFrame{
 
 	private JFrame frame;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					SliderApplication window = new SliderApplication();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
+	
+	PuzzleView panel;
+	
+	
 	/**
 	 * Create the application.
 	 */
@@ -49,11 +36,14 @@ public class SliderApplication {
 		frame.setBounds(100, 100, 657, 534);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		JPanel panel = new JPanel();
-		
+		panel = new PuzzleView();
+
 		JLabel lblMoves = new JLabel("Number of Moves:");
 		
+		JLabel label = new JLabel("10");
+		
 		JButton btnResetPuzzle = new JButton("Reset Puzzle");
+		
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -63,8 +53,11 @@ public class SliderApplication {
 					.addGap(18)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addComponent(btnResetPuzzle)
-						.addComponent(lblMoves))
-					.addContainerGap(123, Short.MAX_VALUE))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(lblMoves)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(label)))
+					.addContainerGap(57, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -73,7 +66,9 @@ public class SliderApplication {
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(18)
-							.addComponent(lblMoves)
+							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+								.addComponent(lblMoves)
+								.addComponent(label))
 							.addGap(28)
 							.addComponent(btnResetPuzzle))
 						.addComponent(panel, GroupLayout.PREFERRED_SIZE, 466, GroupLayout.PREFERRED_SIZE))
@@ -87,11 +82,15 @@ public class SliderApplication {
 		JMenu mnFile = new JMenu("SliderApp");
 		menuBar.add(mnFile);
 		
+		// TODO: Add functionality to save and open previous puzzles
+		
+		/*
 		JMenuItem mntmSave = new JMenuItem("Save...");
 		mnFile.add(mntmSave);
 
 		JMenuItem mntmOpen = new JMenuItem("Open...");
 		mnFile.add(mntmOpen);
+		*/
 		
 		JMenuItem mntmOpen = new JMenuItem("Quit SliderApp");
 		mnFile.add(mntmOpen);
