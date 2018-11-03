@@ -13,51 +13,57 @@ import javax.swing.JMenu;
 import javax.swing.JLabel;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JButton;
+import javax.swing.JTextField;
 
 public class SliderApplication extends JFrame{
-
-	private JFrame frame;
 	
-	PuzzleView panel;
+	Model model;
+
+	JFrame frame;
+	PuzzleView puzzleView;
+	JTextField numMoves;
+	
+	/*
+	 * Return all actionable elements in the GUI. As of now 
+	 * this is only the number of moves that have been made
+	 */
+	
+	public JTextField getNumMoves() { return numMoves; }
 	
 	
 	/**
 	 * Create the application.
 	 */
-	public SliderApplication() {
-		initialize();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
+	public SliderApplication(Model model) {
+		this.model = model;
+		
 		frame = new JFrame();
 		frame.setBounds(100, 100, 657, 534);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		panel = new PuzzleView();
+		puzzleView = new PuzzleView();
 
 		JLabel lblMoves = new JLabel("Number of Moves:");
 		
-		JLabel label = new JLabel("10");
-		
 		JButton btnResetPuzzle = new JButton("Reset Puzzle");
+		
+		numMoves = new JTextField();
+		numMoves.setColumns(10);
 		
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addContainerGap()
-					.addComponent(panel, GroupLayout.PREFERRED_SIZE, 394, GroupLayout.PREFERRED_SIZE)
+					.addComponent(puzzleView, GroupLayout.PREFERRED_SIZE, 394, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addComponent(btnResetPuzzle)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addComponent(lblMoves)
 							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(label)))
-					.addContainerGap(57, Short.MAX_VALUE))
+							.addComponent(numMoves, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap(80, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -68,10 +74,10 @@ public class SliderApplication extends JFrame{
 							.addGap(18)
 							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 								.addComponent(lblMoves)
-								.addComponent(label))
+								.addComponent(numMoves, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 							.addGap(28)
 							.addComponent(btnResetPuzzle))
-						.addComponent(panel, GroupLayout.PREFERRED_SIZE, 466, GroupLayout.PREFERRED_SIZE))
+						.addComponent(puzzleView, GroupLayout.PREFERRED_SIZE, 466, GroupLayout.PREFERRED_SIZE))
 					.addContainerGap(18, Short.MAX_VALUE))
 		);
 		frame.getContentPane().setLayout(groupLayout);
@@ -97,3 +103,4 @@ public class SliderApplication extends JFrame{
 
 	}
 }
+
