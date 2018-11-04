@@ -12,6 +12,11 @@ import javax.swing.JMenuItem;
 import javax.swing.JMenu;
 import javax.swing.JLabel;
 import javax.swing.LayoutStyle.ComponentPlacement;
+
+import controller.Model;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
@@ -41,11 +46,18 @@ public class SliderApplication extends JFrame{
 		frame.setBounds(100, 100, 657, 534);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		puzzleView = new PuzzleView();
+		puzzleView = new PuzzleView(model);
 
 		JLabel lblMoves = new JLabel("Number of Moves:");
 		
-		JButton btnResetPuzzle = new JButton("Reset Puzzle");
+		JButton resetButton = new JButton("Reset Puzzle");
+		// Register the action of hitting the reset button
+		resetButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// Add class call here to perform reset
+			}
+			
+		});
 		
 		numMoves = new JTextField();
 		numMoves.setColumns(10);
@@ -58,7 +70,7 @@ public class SliderApplication extends JFrame{
 					.addComponent(puzzleView, GroupLayout.PREFERRED_SIZE, 394, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(btnResetPuzzle)
+						.addComponent(resetButton)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addComponent(lblMoves)
 							.addPreferredGap(ComponentPlacement.RELATED)
@@ -76,7 +88,7 @@ public class SliderApplication extends JFrame{
 								.addComponent(lblMoves)
 								.addComponent(numMoves, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 							.addGap(28)
-							.addComponent(btnResetPuzzle))
+							.addComponent(resetButton))
 						.addComponent(puzzleView, GroupLayout.PREFERRED_SIZE, 466, GroupLayout.PREFERRED_SIZE))
 					.addContainerGap(18, Short.MAX_VALUE))
 		);
@@ -98,8 +110,14 @@ public class SliderApplication extends JFrame{
 		mnFile.add(mntmOpen);
 		*/
 		
-		JMenuItem mntmOpen = new JMenuItem("Quit SliderApp");
-		mnFile.add(mntmOpen);
+		JMenuItem quitApp = new JMenuItem("Quit SliderApp");
+		mnFile.add(quitApp);
+		
+		quitApp.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// Add class call to quit application here
+			}
+		});
 
 	}
 }
