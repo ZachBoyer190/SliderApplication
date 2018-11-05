@@ -13,7 +13,8 @@ import javax.swing.JMenu;
 import javax.swing.JLabel;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
-import controller.Model;
+import entity.Model;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -56,7 +57,31 @@ public class SliderApplication extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				// Add class call here to perform reset
 			}
-			
+		});
+		
+		JMenuBar menuBar = new JMenuBar();
+		frame.setJMenuBar(menuBar);
+		
+		JMenu mnFile = new JMenu("SliderApp");
+		menuBar.add(mnFile);
+		
+		// TODO: Add functionality to save and open previous puzzles
+		
+		/*
+		JMenuItem mntmSave = new JMenuItem("Save...");
+		mnFile.add(mntmSave);
+
+		JMenuItem mntmOpen = new JMenuItem("Open...");
+		mnFile.add(mntmOpen);
+		*/
+		
+		JMenuItem quitApp = new JMenuItem("Quit SliderApp");
+		mnFile.add(quitApp);
+		
+		quitApp.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// Add class call to quit application here
+			}
 		});
 		
 		numMoves = new JTextField();
@@ -93,31 +118,6 @@ public class SliderApplication extends JFrame{
 					.addContainerGap(18, Short.MAX_VALUE))
 		);
 		frame.getContentPane().setLayout(groupLayout);
-		
-		JMenuBar menuBar = new JMenuBar();
-		frame.setJMenuBar(menuBar);
-		
-		JMenu mnFile = new JMenu("SliderApp");
-		menuBar.add(mnFile);
-		
-		// TODO: Add functionality to save and open previous puzzles
-		
-		/*
-		JMenuItem mntmSave = new JMenuItem("Save...");
-		mnFile.add(mntmSave);
-
-		JMenuItem mntmOpen = new JMenuItem("Open...");
-		mnFile.add(mntmOpen);
-		*/
-		
-		JMenuItem quitApp = new JMenuItem("Quit SliderApp");
-		mnFile.add(quitApp);
-		
-		quitApp.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				// Add class call to quit application here
-			}
-		});
 
 	}
 }
