@@ -20,7 +20,7 @@ public class PuzzleView extends JPanel{
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		
+		/*
 		ArrayList<Piece> pieces = model.getPieces();
 		for (Piece p : pieces) {
 			
@@ -37,8 +37,8 @@ public class PuzzleView extends JPanel{
 			
 			g.fillRect(p.getxCoord(), p.getyCoord(), p.getsizeX(), p.getsizeY());
 			
-			
-		}
+
+		}*/
 		
 	}
 	
