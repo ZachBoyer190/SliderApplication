@@ -1,13 +1,13 @@
 package entity;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 public class Puzzle {
 	
-	LinkedList<Piece> pieces = new LinkedList<>();
+	ArrayList<Piece> pieces = new ArrayList<>();
 	
-	public Puzzle(LinkedList<Piece> pieces) {
-		
+	public Puzzle(ArrayList<Piece> pieces) {
+		this.pieces = pieces;
 	}
 
 }
