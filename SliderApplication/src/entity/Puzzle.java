@@ -30,9 +30,9 @@ public class Puzzle {
 					selected = true;
 				}
 				
-			} else {
-				return selected;
-			}
+			} 
+				
+			
 		}
 		
 		return selected;
