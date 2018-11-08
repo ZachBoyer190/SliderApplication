@@ -7,18 +7,20 @@ public class Piece {
 	int sizeX;
 	int sizeY;
 	boolean goal;
+	boolean selected;
 	
 	/*
 	 * Constructor for the Piece Class
 	 */
 	
-	public Piece(int row, int column, int sizeX, int sizeY, boolean goal) {
+	public Piece(int row, int column, int sizeX, int sizeY, boolean goal, boolean selected) {
 		
 		this.row = row;
 		this.column = column;
 		this.sizeX = sizeX;
 		this.sizeY = sizeY;
 		this.goal = goal;
+		this.selected = selected;
 	}
 
 	public int getRow() {
@@ -39,6 +41,14 @@ public class Piece {
 	
 	public boolean isGoal() {
 		return goal;
+	}
+	
+	public boolean isSelected() {
+		return selected;
+	}
+	
+	public void setSelected(boolean b) {
+		this.selected = b;
 	}
 
 	

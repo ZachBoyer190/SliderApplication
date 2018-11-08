@@ -13,6 +13,8 @@ import javax.swing.JMenu;
 import javax.swing.JLabel;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
+import controller.ExitApplication;
+import controller.Select;
 import entity.Piece;
 import entity.Puzzle;
 
@@ -31,16 +33,15 @@ public class SliderApplication extends JFrame{
 
 	Puzzle puzzle;
 
-	//JFrame frame;
 	PuzzleView puzzleView;
-	JTextField numMoves;
 	
 	/*
 	 * Return all actionable elements in the GUI. As of now 
 	 * this is only the number of moves that have been made
 	 */
 	
-	public JTextField getNumMoves() { return numMoves; }
+	public PuzzleView getPuzzleView() { return puzzleView; }
+
 	
 	@SuppressWarnings("unused")
 	private SliderApplication() {
@@ -53,11 +54,12 @@ public class SliderApplication extends JFrame{
 	public SliderApplication(Puzzle puzzle) {
 		this.puzzle = puzzle;
 		
-		//frame = new JFrame();
 		setBounds(100, 100, 657, 534);
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		
 		puzzleView = new PuzzleView(puzzle);
+		Select selector = new Select(this, puzzle);
+		puzzleView.addMouseListener(selector);
 
 		JLabel lblMoves = new JLabel("Number of Moves:");
 		
@@ -90,12 +92,9 @@ public class SliderApplication extends JFrame{
 		
 		quitApp.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// Add class call to quit application here
+				new ExitApplication(SliderApplication.this).process();
 			}
 		});
-		
-		numMoves = new JTextField();
-		numMoves.setColumns(10);
 		
 		/*
 		 * Move Buttons
@@ -128,6 +127,8 @@ public class SliderApplication extends JFrame{
 			}
 		});
 		
+		JLabel numMoves = new JLabel("1");
+		
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -138,20 +139,21 @@ public class SliderApplication extends JFrame{
 						.addGroup(groupLayout.createSequentialGroup()
 							.addGap(18)
 							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addGroup(groupLayout.createSequentialGroup()
-									.addComponent(lblMoves)
-									.addPreferredGap(ComponentPlacement.RELATED)
-									.addComponent(numMoves, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE))
 								.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
 									.addComponent(upButton)
 									.addComponent(resetButton)
-									.addComponent(downButton))))
+									.addComponent(downButton))
+								.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+									.addComponent(rightButton)
+									.addGroup(groupLayout.createSequentialGroup()
+										.addComponent(lblMoves)
+										.addPreferredGap(ComponentPlacement.RELATED)
+										.addComponent(numMoves)
+										.addPreferredGap(ComponentPlacement.RELATED)))))
 						.addGroup(groupLayout.createSequentialGroup()
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(leftButton)
-							.addPreferredGap(ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-							.addComponent(rightButton)))
-					.addContainerGap())
+							.addGap(32)
+							.addComponent(leftButton)))
+					.addContainerGap(80, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -162,7 +164,7 @@ public class SliderApplication extends JFrame{
 							.addGap(18)
 							.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 								.addComponent(lblMoves)
-								.addComponent(numMoves, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+								.addComponent(numMoves))
 							.addGap(28)
 							.addComponent(resetButton)
 							.addGap(153)
@@ -179,6 +181,5 @@ public class SliderApplication extends JFrame{
 		getContentPane().setLayout(groupLayout);
 
 	}
-	
 }
 

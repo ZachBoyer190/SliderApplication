@@ -35,9 +35,11 @@ public class PuzzleView extends JPanel{
 			// TODO: Make this helper function
 			if (p.isGoal()) {
 				g.setColor(Color.red);
-			}
-			
-			else {
+				
+			} else if (p.isSelected()) {
+				g.setColor(Color.BLUE);
+				
+			} else {
 				g.setColor(Color.gray);
 			}
 			
