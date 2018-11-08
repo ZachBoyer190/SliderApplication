@@ -1,7 +1,11 @@
 package slider;
 
 import entity.*;
+import controller.ExitApplication;
 import boundary.SliderApplication;
+
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 
 public class Main {
@@ -34,6 +38,13 @@ public class Main {
 		Puzzle puzzle = new Puzzle(pieces);
 		
 		SliderApplication app = new SliderApplication(puzzle);
+		app.addWindowListener (new WindowAdapter() {
+
+			public void windowClosing(WindowEvent e) {
+				new ExitApplication(app).process();
+			}
+
+		});
 		
 		app.setVisible(true);
 		
