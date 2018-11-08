@@ -15,11 +15,11 @@ public class Select extends MouseAdapter{
 		this.puzzle = puzzle;
 	}
 	
-	public void mousePressed(MouseEvent e) {
+	public void selectPiece(double x, double y) {
 		if (puzzle.hasSelected()) {
 			return;
 		} else {
-			puzzle.selectPiece(e.getX(), e.getY(), 92.8, 98.5);
+			puzzle.selectPiece(x, y, 92.8, 98.5);
 			PuzzleView view = app.getPuzzleView();
 			view.repaint();
 		}

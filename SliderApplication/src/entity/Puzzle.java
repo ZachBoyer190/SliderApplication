@@ -20,7 +20,7 @@ public class Puzzle {
 		return selected;
 	}
 	
-	public boolean selectPiece(int xCoord, int yCoord, double height, double width) {
+	public boolean selectPiece(double xCoord, double yCoord, double height, double width) {
 		selected = false;
 		for (Piece p : pieces) {
 			if (xCoord >= p.getColumn()*width && xCoord <= (p.getColumn()*width + width)) {

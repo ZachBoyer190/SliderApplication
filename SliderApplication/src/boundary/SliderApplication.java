@@ -25,6 +25,9 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 public class SliderApplication extends JFrame{
 	
 	/**
@@ -58,8 +61,12 @@ public class SliderApplication extends JFrame{
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		
 		puzzleView = new PuzzleView(puzzle);
-		Select selector = new Select(this, puzzle);
-		puzzleView.addMouseListener(selector);
+		puzzleView.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				new Select(SliderApplication.this, puzzle).selectPiece(e.getX(),  e.getY());;
+			}
+		});
 
 		JLabel lblMoves = new JLabel("Number of Moves:");
 		
