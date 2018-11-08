@@ -13,19 +13,25 @@ import javax.swing.JMenu;
 import javax.swing.JLabel;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
-import entity.Model;
+import entity.Piece;
+import entity.Puzzle;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
 public class SliderApplication extends JFrame{
 	
-	Model model;
+	/**
+	 * 
+	 */
 
-	JFrame frame;
+	Puzzle puzzle;
+
+	//JFrame frame;
 	PuzzleView puzzleView;
 	JTextField numMoves;
 	
@@ -36,18 +42,22 @@ public class SliderApplication extends JFrame{
 	
 	public JTextField getNumMoves() { return numMoves; }
 	
+	@SuppressWarnings("unused")
+	private SliderApplication() {
+		this(new Puzzle(new ArrayList<>()));
+	}
 	
 	/**
 	 * Create the application.
 	 */
-	public SliderApplication(Model model) {
-		this.model = model;
+	public SliderApplication(Puzzle puzzle) {
+		this.puzzle = puzzle;
 		
-		frame = new JFrame();
-		frame.setBounds(100, 100, 657, 534);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//frame = new JFrame();
+		setBounds(100, 100, 657, 534);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		puzzleView = new PuzzleView(model);
+		puzzleView = new PuzzleView(puzzle);
 
 		JLabel lblMoves = new JLabel("Number of Moves:");
 		
@@ -60,7 +70,7 @@ public class SliderApplication extends JFrame{
 		});
 		
 		JMenuBar menuBar = new JMenuBar();
-		frame.setJMenuBar(menuBar);
+		setJMenuBar(menuBar);
 		
 		JMenu mnFile = new JMenu("SliderApp");
 		menuBar.add(mnFile);
@@ -118,7 +128,7 @@ public class SliderApplication extends JFrame{
 			}
 		});
 		
-		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
+		GroupLayout groupLayout = new GroupLayout(getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
@@ -166,8 +176,9 @@ public class SliderApplication extends JFrame{
 						.addComponent(puzzleView, GroupLayout.PREFERRED_SIZE, 466, GroupLayout.PREFERRED_SIZE))
 					.addContainerGap(18, Short.MAX_VALUE))
 		);
-		frame.getContentPane().setLayout(groupLayout);
+		getContentPane().setLayout(groupLayout);
 
 	}
+	
 }
 

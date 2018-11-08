@@ -9,5 +9,9 @@ public class Puzzle {
 	public Puzzle(ArrayList<Piece> pieces) {
 		this.pieces = pieces;
 	}
+	
+	public ArrayList<Piece> getPieces(){
+		return pieces;
+	}
 
 }

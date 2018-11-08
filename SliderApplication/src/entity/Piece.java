@@ -2,8 +2,8 @@ package entity;
 
 public class Piece {
 	
-	private int xCoord;
-	int yCoord;
+	int row;
+	int column;
 	int sizeX;
 	int sizeY;
 	boolean goal;
@@ -12,21 +12,21 @@ public class Piece {
 	 * Constructor for the Piece Class
 	 */
 	
-	public Piece(int xCoord, int yCoord, int sizeX, int sizeY, boolean goal) {
+	public Piece(int row, int column, int sizeX, int sizeY, boolean goal) {
 		
-		this.xCoord = xCoord;
-		this.yCoord = yCoord;
+		this.row = row;
+		this.column = column;
 		this.sizeX = sizeX;
 		this.sizeY = sizeY;
 		this.goal = goal;
 	}
 
-	public int getxCoord() {
-		return xCoord;
+	public int getRow() {
+		return row;
 	}
 	
-	public int getyCoord() {
-		return yCoord;
+	public int getColumn() {
+		return column;
 	}
 	
 	public int getsizeX() {
