@@ -37,5 +37,30 @@ public class Puzzle {
 		
 		return selected;
 	}
+	
+	public void movePiece(int[] direction) {
+		for (Piece p: pieces) {
+			if (p.isSelected()) {
+				p.setRow(direction[0]);
+				p.setColumn(direction[1]);
+				p.setSelected(false);
+				selected = false;
+				break;
+			}
+		}
+	}
+	
+	public void checkMove(int[] direction, double height, double width) {
+		
+		// Need to check all 4 points. So the upper left, upper right, lower left, lower right
+		for (Piece outerPiece : pieces) {
+			for (Piece p : pieces) {
+				if (outerPiece.getsizeX() > 1 || outerPiece.getsizeY() > 1) {
+				} else {
+					
+				}
+			}
+		}
+	}
 
 }

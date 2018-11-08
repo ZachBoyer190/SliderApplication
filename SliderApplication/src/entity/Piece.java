@@ -50,7 +50,13 @@ public class Piece {
 	public void setSelected(boolean b) {
 		this.selected = b;
 	}
-
 	
-
+	public void setRow(int dR) {
+		this.row = row + dR;
+	}
+	
+	public void setColumn(int dC) {
+		this.column = column + dC;
+	}
+	
 }

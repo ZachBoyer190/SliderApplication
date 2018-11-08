@@ -14,6 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
 import controller.ExitApplication;
+import controller.Move;
 import controller.Select;
 import entity.Piece;
 import entity.Puzzle;
@@ -110,27 +111,32 @@ public class SliderApplication extends JFrame{
 		JButton upButton = new JButton("^");
 		upButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
+				int[] up = {-1, 0};
+				new Move(SliderApplication.this, puzzle).movePiece(up);;
 			}
 		});
 		
 		JButton downButton = new JButton("v");
 		downButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int[] down = {1, 0};
+				new Move(SliderApplication.this, puzzle).movePiece(down);
 			}
 		});
 		
 		JButton leftButton = new JButton("<");
 		leftButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
+				int[] left = {0, -1};
+				new Move(SliderApplication.this, puzzle).movePiece(left);
 			}
 		});
 		
 		JButton rightButton = new JButton(">");
 		rightButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
+				int[] right = {0, 1};
+				new Move(SliderApplication.this, puzzle).movePiece(right);
 			}
 		});
 		
