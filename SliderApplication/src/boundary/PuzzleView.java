@@ -33,7 +33,7 @@ public class PuzzleView extends JPanel{
 		for (Piece p : puzzle.getPieces()) {
 			
 			// TODO: Make this helper function
-			if (p.isGoal()) {
+			if (p.isGoal() && !p.isSelected()) {
 				g.setColor(Color.red);
 				
 			} else if (p.isSelected()) {
