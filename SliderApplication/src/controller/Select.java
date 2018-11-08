@@ -1,12 +1,9 @@
 package controller;
 
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-
 import boundary.*;
 import entity.Puzzle;
 
-public class Select extends MouseAdapter{
+public class Select {
 	SliderApplication app;
 	Puzzle puzzle;
 	
