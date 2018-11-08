@@ -52,6 +52,9 @@ public class PuzzleView extends JPanel{
 		g2.setColor(Color.black);
 		g2.drawRect(0, 0, getWidth(), getHeight());
 		
+		g2.setColor(Color.blue);
+		g2.drawLine(panelWidth, 5*panelHeight, 3*panelWidth, 5*panelHeight);
+		
 	}
 	
 
