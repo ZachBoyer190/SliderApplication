@@ -16,6 +16,8 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import controller.ExitApplication;
 import controller.Move;
 import controller.Select;
+import controller.Reset;
+
 import entity.Piece;
 import entity.Puzzle;
 
@@ -36,6 +38,7 @@ public class SliderApplication extends JFrame{
 	 */
 
 	Puzzle puzzle;
+	Puzzle puzzleReset;
 
 	PuzzleView puzzleView;
 	int numberMoves = 0;
@@ -47,10 +50,9 @@ public class SliderApplication extends JFrame{
 	 */
 	
 	public PuzzleView getPuzzleView() { return puzzleView; }
-	public void setMoves() { 
-		this.numberMoves++; 
-		this.repaint();
-		}
+	public Puzzle getOriginalPuzzle() { return puzzleReset; }
+	
+	public void setMoves() { this.numberMoves++; }
 	
 	@SuppressWarnings("unused")
 	private SliderApplication() {
@@ -62,6 +64,7 @@ public class SliderApplication extends JFrame{
 	 */
 	public SliderApplication(Puzzle puzzle) {
 		this.puzzle = puzzle;
+		this.puzzleReset = puzzle;
 		
 		setBounds(100, 100, 657, 534);
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -80,7 +83,7 @@ public class SliderApplication extends JFrame{
 		// Register the action of hitting the reset button
 		resetButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// Add class call here to perform reset
+				new Reset(SliderApplication.this, puzzleReset).resetPuzzle();
 			}
 		});
 		
