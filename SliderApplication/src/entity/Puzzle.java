@@ -28,13 +28,9 @@ public class Puzzle {
 	public boolean selectPiece(double xCoord, double yCoord, double height, double width) {
 		selected = false;
 		for (Piece p : pieces) {
-			if (xCoord >= p.getColumn()*width && xCoord <= (p.getColumn()*width + width)) {
-				if(yCoord >= p.getRow()*height && yCoord <= (p.getRow()*height + height)) {
-					p.setSelected(true);
-					
-					selected = true;
-				}
-				
+			if (xCoord >= p.getColumn()*width && xCoord <= (p.getColumn()*width) + (p.getsizeX()*width) && yCoord >= p.getRow()*height && yCoord <= (p.getRow()*height + (p.getsizeY()*height))) {
+				p.setSelected(true);
+				selected = true;
 			} 
 				
 			
