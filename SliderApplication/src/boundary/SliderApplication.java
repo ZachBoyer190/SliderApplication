@@ -38,6 +38,8 @@ public class SliderApplication extends JFrame{
 	Puzzle puzzle;
 
 	PuzzleView puzzleView;
+	int numberMoves = 0;
+	JLabel numMoves;
 	
 	/*
 	 * Return all actionable elements in the GUI. As of now 
@@ -45,7 +47,10 @@ public class SliderApplication extends JFrame{
 	 */
 	
 	public PuzzleView getPuzzleView() { return puzzleView; }
-
+	public void setMoves() { 
+		this.numberMoves++; 
+		this.repaint();
+		}
 	
 	@SuppressWarnings("unused")
 	private SliderApplication() {
@@ -112,7 +117,8 @@ public class SliderApplication extends JFrame{
 		upButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int[] up = {-1, 0};
-				new Move(SliderApplication.this, puzzle).movePiece(up);;
+				new Move(SliderApplication.this, puzzle).movePiece(up);
+				numMoves.setText(Integer.toString(numberMoves));
 			}
 		});
 		
@@ -121,6 +127,7 @@ public class SliderApplication extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				int[] down = {1, 0};
 				new Move(SliderApplication.this, puzzle).movePiece(down);
+				numMoves.setText(Integer.toString(numberMoves));
 			}
 		});
 		
@@ -129,6 +136,7 @@ public class SliderApplication extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				int[] left = {0, -1};
 				new Move(SliderApplication.this, puzzle).movePiece(left);
+				numMoves.setText(Integer.toString(numberMoves));
 			}
 		});
 		
@@ -137,10 +145,12 @@ public class SliderApplication extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				int[] right = {0, 1};
 				new Move(SliderApplication.this, puzzle).movePiece(right);
+				numMoves.setText(Integer.toString(numberMoves));
 			}
 		});
 		
-		JLabel numMoves = new JLabel("1");
+		numMoves = new JLabel();
+		numMoves.setText(Integer.toString(numberMoves));
 		
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
 		groupLayout.setHorizontalGroup(
@@ -197,5 +207,7 @@ public class SliderApplication extends JFrame{
 		getContentPane().setLayout(groupLayout);
 
 	}
+	
+	
 }
 

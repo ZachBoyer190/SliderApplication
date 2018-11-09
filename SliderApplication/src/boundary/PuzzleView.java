@@ -58,23 +58,5 @@ public class PuzzleView extends JPanel{
 		g2.drawLine(panelWidth, 5*panelHeight, 3*panelWidth, 5*panelHeight);
 		
 	}
-	
-//	public int[] getWinCoordinates() {
-//		int[] coordinates = new int[3];
-//		coordinates[0] = panelWidth;
-//		coordinates[1] = 5*panelHeight;
-//		coordinates[2] = 3*panelWidth;
-//		coordinates[3] = 5*panelHeight;
-//		return coordinates;
-//	}
-	
-//	public int getHeight() {
-//		return panelHeight;
-//	}
-//	
-//	public int getWidth() {
-//		return panelWidth;
-//	}
-	
 
 }
