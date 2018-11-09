@@ -17,13 +17,14 @@ public class Move {
 	public void movePiece(int[] direction) {
 		PuzzleView view = app.getPuzzleView();
 		if (puzzle.hasSelected()) {
+			if (puzzle.checkWin(direction, view.getHeight() / 5, view.getWidth() / 4)) {
+				new WinApplication(app).process();
+			} else {
 			puzzle.movePiece(direction, view.getHeight() / 5, view.getWidth() / 4);
 			app.setMoves();
 			view.repaint();
 		}
+		}
 	}
-	
-	//public boolean validMove(int[] direction) {
-		
-	//}
+
 }

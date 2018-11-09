@@ -67,28 +67,13 @@ public class Puzzle {
 	// make sure height and width are the piece height and width
 	public boolean checkMove(int[] direction, int height, int width) {
 		boolean valid = true;
-		boolean win = false;
 		// find upperLeft and lowerRight points of the selected piece when in the moved position
 		// Keys are Y Coordinates, Values are X Coordinates
 		Pair<Integer, Integer> upperLeftSelected = new Pair<>((findSelected().getRow() + direction[0])*height, (findSelected().getColumn() + direction[1])*width);
 		Pair<Integer, Integer> lowerRightSelected = new Pair<>(((findSelected().getRow() + direction[0])*height) + (findSelected().getsizeY()*height), ((findSelected().getColumn() + direction[1])*width) + (findSelected().getsizeX()*width));
 		Pair<Integer, Integer> upperLeftBorder = new Pair<>(0, 0);
 		Pair<Integer, Integer> lowerRightBorder = new Pair<>(height * 5, width * 4);
-		
-		// Check for win condition
-		if(valid) {
-			Pair<Integer, Integer> leftWin = new Pair<>(5*height, width);
-			if(findSelected().isGoal()) {
-				if(upperLeftSelected.getValue() == leftWin.getValue() && upperLeftSelected.getKey() == leftWin.getKey()) {
-					win = true;
-				}
-			}
-		}
-		
-		if(win) {
-			return win;
-		}
-		
+
 		// Check collision with border
 		if(upperLeftSelected.getValue() < upperLeftBorder.getValue()) {
 			valid = false;
@@ -137,6 +122,21 @@ public class Puzzle {
 		}	
 		
 		return valid;
+	}
+	
+	public boolean checkWin(int[] direction, int height, int width) {
+		// Find points on the selected piece and on the gate
+		
+		Pair<Integer, Integer> upperLeftSelected = new Pair<>((findSelected().getRow() + (findSelected().getsizeY()*direction[0]))*height, (findSelected().getColumn() + direction[1])*width);
+		Pair<Integer, Integer> leftWin = new Pair<>(5*height, width);
+		
+		boolean win = false;
+		if(findSelected().isGoal()) {
+			if(upperLeftSelected.getValue().equals(leftWin.getValue() ) && upperLeftSelected.getKey().equals(leftWin.getKey())) {
+				win = true;
+			}
+		}
+		return win;
 	}
 
 }

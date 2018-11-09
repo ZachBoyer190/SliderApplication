@@ -15,24 +15,25 @@ public class Main {
 		Piece p1 = new Piece(0, 0, 1, 2, false, false);
 		Piece p2 = new Piece(2, 0, 1, 2, false, false);
 		Piece p3 = new Piece(2, 1, 1, 1, false, false);
-		Piece p4 = new Piece(3, 1, 1, 1, false, false);
+		//Piece p4 = new Piece(3, 1, 1, 1, false, false);
 		Piece p5 = new Piece(2, 2, 1, 1, false, false);
-		Piece p6 = new Piece(3, 2, 1, 1, false, false);
+		//Piece p6 = new Piece(3, 2, 1, 1, false, false);
 		Piece p7 = new Piece(0, 3, 1, 2, false, false);
 		Piece p8 = new Piece(2, 3, 1, 2, false, false);
-		Piece p9= new Piece(4, 1, 2, 1, false, false);
-		Piece pGoal = new Piece(0, 1, 2, 2, true, false);
+		//Piece p9= new Piece(4, 1, 2, 1, false, false);
+		//Piece pGoal = new Piece(0, 1, 2, 2, true, false);
+		Piece pGoal = new Piece(3, 1, 2, 2, true, false);
 		
 		ArrayList<Piece> pieces = new ArrayList<>();
 		pieces.add(p1);
 		pieces.add(p2);
 		pieces.add(p3);
-		pieces.add(p4);
+		//pieces.add(p4);
 		pieces.add(p5);
-		pieces.add(p6);
+		//pieces.add(p6);
 		pieces.add(p7);
 		pieces.add(p8);
-		pieces.add(p9);
+		//pieces.add(p9);
 		pieces.add(pGoal);
 		
 		Puzzle puzzle = new Puzzle(pieces);
