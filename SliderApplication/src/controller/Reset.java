@@ -8,18 +8,16 @@ import boundary.PuzzleView;
 
 public class Reset {
 	
-	Puzzle puzzle;
 	SliderApplication app;
 	Model m;
 	
-	public Reset(SliderApplication app, Puzzle puzzle) {
+	public Reset(SliderApplication app) {
 		this.app = app;
-		this.puzzle = puzzle;
 	}
 	
 	public void resetPuzzle() {
-		Puzzle original = m.getOriginalPuzzle();
-		
+		Puzzle originalPuzzle = app.getOriginalPuzzle();
+		app.resetToOriginal(originalPuzzle);
 	}
 
 }

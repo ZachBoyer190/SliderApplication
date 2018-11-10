@@ -20,6 +20,7 @@ import controller.Reset;
 
 import entity.Piece;
 import entity.Puzzle;
+import entity.Model;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -38,7 +39,7 @@ public class SliderApplication extends JFrame{
 	 */
 
 	Puzzle puzzle;
-	Puzzle puzzleReset;
+	Model m;
 
 	PuzzleView puzzleView;
 	int numberMoves = 0;
@@ -50,22 +51,26 @@ public class SliderApplication extends JFrame{
 	 */
 	
 	public PuzzleView getPuzzleView() { return puzzleView; }
-	public Puzzle getOriginalPuzzle() { return puzzleReset; }
+	public Puzzle getOriginalPuzzle() { return m.getOriginal(); }
+	public void resetToOriginal(Puzzle p) { 
+		puzzleView.updatePuzzle(p);
+		puzzleView.repaint();
+		}
 	
 	public void setMoves() { this.numberMoves++; }
 	
 	@SuppressWarnings("unused")
 	private SliderApplication() {
-		this(new Puzzle(new ArrayList<>()));
+		this(new Puzzle(new ArrayList<>()), new Model());
 	}
 	
 	/**
 	 * Create the application.
 	 */
-	public SliderApplication(Puzzle puzzle) {
+	public SliderApplication(Puzzle puzzle, Model m) {
 		this.puzzle = puzzle;
-		this.puzzleReset = puzzle;
-		
+		this.m = m;
+
 		setBounds(100, 100, 657, 534);
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		
@@ -83,7 +88,9 @@ public class SliderApplication extends JFrame{
 		// Register the action of hitting the reset button
 		resetButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new Reset(SliderApplication.this, puzzleReset).resetPuzzle();
+				numberMoves = 0;
+				new Reset(SliderApplication.this).resetPuzzle();
+				numMoves.setText(Integer.toString(numberMoves));
 			}
 		});
 		
@@ -92,17 +99,7 @@ public class SliderApplication extends JFrame{
 		
 		JMenu mnFile = new JMenu("SliderApp");
 		menuBar.add(mnFile);
-		
-		// TODO: Add functionality to save and open previous puzzles
-		
-		/*
-		JMenuItem mntmSave = new JMenuItem("Save...");
-		mnFile.add(mntmSave);
 
-		JMenuItem mntmOpen = new JMenuItem("Open...");
-		mnFile.add(mntmOpen);
-		*/
-		
 		JMenuItem quitApp = new JMenuItem("Quit SliderApp");
 		mnFile.add(quitApp);
 		

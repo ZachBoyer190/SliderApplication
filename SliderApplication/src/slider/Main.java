@@ -37,8 +37,10 @@ public class Main {
 		pieces.add(pGoal);
 		
 		Puzzle puzzle = new Puzzle(pieces);
+		Model m = new Model();
+		m.setOriginal(puzzle);
 		
-		SliderApplication app = new SliderApplication(puzzle);
+		SliderApplication app = new SliderApplication(puzzle, m);
 		app.addWindowListener (new WindowAdapter() {
 
 			public void windowClosing(WindowEvent e) {

@@ -138,5 +138,15 @@ public class Puzzle {
 		}
 		return win;
 	}
+	
+	public Puzzle deepCopy(Puzzle puzzle) {
+		ArrayList<Piece> copied = new ArrayList<>();
+		for (Piece p : puzzle.pieces) {
+			Piece pNew = new Piece(p.getRow(), p.getColumn(), p.getsizeX(), p.getsizeY(), p.isGoal(), p.isSelected());
+			copied.add(pNew);
+		}
+		Puzzle copiedPuzzle = new Puzzle(copied);
+		return copiedPuzzle;
+	}
 
 }

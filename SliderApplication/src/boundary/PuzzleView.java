@@ -22,6 +22,10 @@ public class PuzzleView extends JPanel{
 		this.puzzle = p;
 	}
 	
+	public void updatePuzzle(Puzzle p) {
+		this.puzzle = p;
+	}
+	
 	@Override
 	public void paintComponent(Graphics g) {
 		Graphics2D g2 = (Graphics2D) g;

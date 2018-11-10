@@ -13,6 +13,7 @@ public class WinApplication {
 		int c = JOptionPane.showConfirmDialog(app, "Congratulations! Would you like to play again?");
 		
 		if(c == JOptionPane.OK_OPTION) {
+			//new Reset(app)
 
 		} else {
 			
