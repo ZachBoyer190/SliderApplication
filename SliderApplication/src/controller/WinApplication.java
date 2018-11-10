@@ -3,6 +3,8 @@ package controller;
 import javax.swing.*;
 import boundary.SliderApplication;
 
+import slider.ChoosePuzzle;
+
 public class WinApplication {
 	JFrame app;
 	SliderApplication slider;
@@ -13,13 +15,14 @@ public class WinApplication {
 	}
 	
 	public void process() {
-		int c = JOptionPane.showConfirmDialog(app, "Congratulations! Would you like to play again?");
+		int c = JOptionPane.showConfirmDialog(app, "Congratulations! You've won! Play Again?");
 		
 		if(c == JOptionPane.OK_OPTION) {
 			new Reset(slider).resetPuzzle();
 
 		} else {
-			
+			app.setVisible(false);
+			app.dispose();
 		}
 	}
 
