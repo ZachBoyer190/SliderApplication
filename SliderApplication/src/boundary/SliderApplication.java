@@ -53,10 +53,13 @@ public class SliderApplication extends JFrame{
 	public PuzzleView getPuzzleView() { return puzzleView; }
 	public Puzzle getOriginalPuzzle() { return m.getOriginal(); }
 	public void resetToOriginal(Puzzle p) { 
+		m.setOriginal(p);
 		puzzleView.updatePuzzle(p);
+		puzzle.setPuzzle(p.getPieces());
+		this.puzzle = p;
 		puzzleView.repaint();
-		}
-	
+	}
+
 	public void setMoves() { this.numberMoves++; }
 	
 	@SuppressWarnings("unused")
@@ -74,11 +77,11 @@ public class SliderApplication extends JFrame{
 		setBounds(100, 100, 657, 534);
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		
-		puzzleView = new PuzzleView(puzzle);
+		puzzleView = new PuzzleView(this.puzzle);
 		puzzleView.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				new Select(SliderApplication.this, puzzle).selectPiece(e.getX(),  e.getY());;
+				new Select(SliderApplication.this, SliderApplication.this.puzzle).selectPiece(e.getX(),  e.getY());
 			}
 		});
 
@@ -117,7 +120,7 @@ public class SliderApplication extends JFrame{
 		upButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int[] up = {-1, 0};
-				new Move(SliderApplication.this, puzzle).movePiece(up);
+				new Move(SliderApplication.this, SliderApplication.this.puzzle).movePiece(up);
 				numMoves.setText(Integer.toString(numberMoves));
 			}
 		});
@@ -126,7 +129,7 @@ public class SliderApplication extends JFrame{
 		downButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int[] down = {1, 0};
-				new Move(SliderApplication.this, puzzle).movePiece(down);
+				new Move(SliderApplication.this, SliderApplication.this.puzzle).movePiece(down);
 				numMoves.setText(Integer.toString(numberMoves));
 			}
 		});
@@ -135,7 +138,7 @@ public class SliderApplication extends JFrame{
 		leftButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int[] left = {0, -1};
-				new Move(SliderApplication.this, puzzle).movePiece(left);
+				new Move(SliderApplication.this, SliderApplication.this.puzzle).movePiece(left);
 				numMoves.setText(Integer.toString(numberMoves));
 			}
 		});
@@ -144,7 +147,7 @@ public class SliderApplication extends JFrame{
 		rightButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int[] right = {0, 1};
-				new Move(SliderApplication.this, puzzle).movePiece(right);
+				new Move(SliderApplication.this, SliderApplication.this.puzzle).movePiece(right);
 				numMoves.setText(Integer.toString(numberMoves));
 			}
 		});

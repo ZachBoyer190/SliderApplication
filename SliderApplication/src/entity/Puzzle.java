@@ -25,6 +25,10 @@ public class Puzzle {
 		return selected;
 	}
 	
+	public void setPuzzle(ArrayList<Piece> p) {
+		this.pieces = p;
+	}
+	
 	public boolean selectPiece(double xCoord, double yCoord, double height, double width) {
 		selected = false;
 		for (Piece p : pieces) {

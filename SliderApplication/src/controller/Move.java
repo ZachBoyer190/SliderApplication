@@ -18,7 +18,7 @@ public class Move {
 		PuzzleView view = app.getPuzzleView();
 		if (puzzle.hasSelected()) {
 			if (puzzle.checkWin(direction, view.getHeight() / 5, view.getWidth() / 4)) {
-				new WinApplication(app).process();
+				new WinApplication(app, app).process();
 			} else {
 			puzzle.movePiece(direction, view.getHeight() / 5, view.getWidth() / 4);
 			app.setMoves();
