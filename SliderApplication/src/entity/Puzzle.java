@@ -29,6 +29,12 @@ public class Puzzle {
 		this.pieces = p;
 	}
 	
+	public void deselect() {
+		Piece p = findSelected();
+		p.setSelected(false);
+		selected = false;
+	}
+	
 	public boolean selectPiece(double xCoord, double yCoord, double height, double width) {
 		selected = false;
 		for (Piece p : pieces) {

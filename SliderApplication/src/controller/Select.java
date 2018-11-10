@@ -14,6 +14,7 @@ public class Select {
 	
 	public void selectPiece(double x, double y) {
 		if (puzzle.hasSelected()) {
+			puzzle.deselect();
 			return;
 		} else {
 			puzzle.selectPiece(x, y, 92.8, 98.5);
