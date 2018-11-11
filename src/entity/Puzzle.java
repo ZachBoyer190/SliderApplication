@@ -111,7 +111,7 @@ public class Puzzle {
 			}
 		
 		// Check collisions with other pieces
-		if(valid) {
+		if(valid) { 
 			for (Piece p : pieces) {
 				if (!p.isSelected()) {
 					Pair<Integer, Integer> upperLeft = new Pair<>(p.getRow()*height, p.getColumn()*width);

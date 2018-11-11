@@ -15,7 +15,7 @@ public class Model {
 	}
 	
 	public void setOriginal(Puzzle p) {
-		this.original = p.deepCopy(p);
+		this.original = p.deepCopy(p); 
 	}
 	
 	public Puzzle getOriginal() {
