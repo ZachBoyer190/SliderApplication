@@ -112,6 +112,14 @@ public class SliderApplication extends JFrame{
 			}
 		});
 		
+		JMenuItem generatePuzzle = new JMenuItem("Generate New Puzzle");
+		mnFile.add(generatePuzzle);
+		generatePuzzle.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		
 		/*
 		 * Move Buttons
 		 */

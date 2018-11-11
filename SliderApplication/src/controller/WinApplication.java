@@ -3,8 +3,6 @@ package controller;
 import javax.swing.*;
 import boundary.SliderApplication;
 
-import slider.ChoosePuzzle;
-
 public class WinApplication {
 	JFrame app;
 	SliderApplication slider;
