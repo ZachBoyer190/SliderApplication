@@ -4,7 +4,6 @@ import entity.Puzzle;
 import entity.Model;
 
 import boundary.SliderApplication;
-import boundary.PuzzleView;
 
 public class Reset {
 	

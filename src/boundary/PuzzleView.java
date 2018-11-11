@@ -5,8 +5,6 @@ import java.awt.Graphics2D;
 import java.awt.BasicStroke;
 import java.awt.Color;
 
-import java.util.ArrayList;
-
 import javax.swing.JPanel;
 
 import entity.*;

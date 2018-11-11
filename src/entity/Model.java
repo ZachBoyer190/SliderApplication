@@ -1,7 +1,6 @@
 package entity;
 
 import boundary.SliderApplication;
-import java.util.ArrayList;
 
 /*
  * Controller Class for the high level model

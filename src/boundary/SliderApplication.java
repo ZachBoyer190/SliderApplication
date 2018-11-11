@@ -3,8 +3,6 @@ package boundary;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import java.awt.BorderLayout;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JMenuBar;
@@ -18,7 +16,6 @@ import controller.Move;
 import controller.Select;
 import controller.Reset;
 
-import entity.Piece;
 import entity.Puzzle;
 import entity.Model;
 
@@ -27,7 +24,6 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
-import javax.swing.JTextField;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
