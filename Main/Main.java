@@ -1,4 +1,3 @@
-package slider;
 
 import entity.*;
 import controller.ExitApplication;

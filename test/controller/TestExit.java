@@ -1,6 +1,5 @@
 package controller;
 
-import java.awt.AWTException;
 import java.util.ArrayList;
 
 import boundary.SliderApplication;
@@ -9,8 +8,8 @@ import entity.Piece;
 import entity.Puzzle;
 import junit.framework.TestCase;
 
-public class TestWin extends TestCase{
-	
+public class TestExit extends TestCase{
+
 	SliderApplication app;
 	Model m;
 	Puzzle puzzle;
@@ -29,15 +28,8 @@ public class TestWin extends TestCase{
 		app.setVisible(true);
 	}
 	
-	public void testWin() {
-		WinApplication win = new WinApplication(app, app);
-		win.process();
+	public void testExit() {
+		ExitApplication exit = new ExitApplication(app);
+		exit.process();
 	}
-	
-	protected void tearDown() {
-		app.setVisible(false);
-		app.dispose();
-	}
-	
-
 }
