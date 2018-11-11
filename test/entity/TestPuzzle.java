@@ -104,4 +104,18 @@ public class TestPuzzle extends TestCase {
 		m.setOriginal(puzzle);
 		assertNotSame(puzzle.deepCopy(puzzle), m.getOriginal());
 	}
+
+	public void testMovePiece() {
+		Piece p1 = new Piece(0, 1, 2, 1, false, false);
+		Piece p2 = new Piece(1, 1, 1, 1, true, false);
+		ArrayList<Piece> puzzleArray = new ArrayList<>();
+		Puzzle puzzle = new Puzzle(puzzleArray);
+		puzzleArray.add(p1);
+		puzzleArray.add(p2);
+		puzzle.selectPiece(1.5, 1.5, 1, 1);
+		int [] direction = {1, 0};
+		
+		puzzle.movePiece(direction, 1, 1);
+		assertEquals(2, p2.getRow());	
+	}
 }
